@@ -3,59 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Efeito Smoky</title>
+    <title>Smoky Delay Effect</title>
     <style>
         body {
             margin: 0;
-            padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            background-color: #000; /* Fundo preto */
+            min-height: 100vh;
+            background-color: #121212; /* Um cinza ainda mais profundo */
+            font-family: 'Arial Black', sans-serif;
             overflow: hidden;
-            font-family: 'Arial', sans-serif;
+            font-weight: bold;
         }
 
-        ul {
-            margin: 0;
-            padding: 0;
+        .container {
             display: flex;
         }
 
-        ul li {
-            list-style: none;
-            color: #fff; /* Cor branca */
-            font-size: 5rem;
-            font-weight: bold;
-            letter-spacing: 10px;
-            transition: 2s; /* Duração do efeito */
+        .container span {
+            display: block;
+            color: #ffffff;
+            font-size: 8rem;
+            letter-spacing: 12px;
+            /* Transição de 1.2s para ser suave mas perceptível */
+            transition: all 1.2s ease-in-out;
+            user-select: none;
         }
 
-        /* O segredo do efeito acontece aqui ao passar o mouse */
-        ul:hover li {
-            transform: rotate(45deg) translateY(-200px);
+        /* Efeito de saída: Sobe, vai pro lado e vira fumaça */
+        .container:hover span {
             opacity: 0;
-            filter: blur(20px);
+            filter: blur(25px);
+            transform: translateY(-150px) translateX(80px) rotate(40deg) scale(1.5);
         }
 
-        /* Atraso (delay) para cada letra sumir uma por uma */
-        ul li:nth-child(1) { transition-delay: 0s; }
-        ul li:nth-child(2) { transition-delay: 0.1s; }
-        ul li:nth-child(3) { transition-delay: 0.2s; }
-        ul li:nth-child(4) { transition-delay: 0.3s; }
-        ul li:nth-child(5) { transition-delay: 0.4s; }
+        /* INTERVALOS (DELAYS) */
+        /* O delay cria o espaço de tempo entre a saída de cada letra */
+        .container span:nth-child(1) { transition-delay: 0.0s; }
+        .container span:nth-child(2) { transition-delay: 0.2s; }
+        .container span:nth-child(3) { transition-delay: 0.4s; }
+        .container span:nth-child(4) { transition-delay: 0.6s; }
+        .container span:nth-child(5) { transition-delay: 0.8s; }
+
     </style>
 </head>
 <body>
 
-    <ul>
-        <li>s</li>
-        <li>m</li>
-        <li>o</li>
-        <li>k</li>
-        <li>y</li>
-    </ul>
+    <div class="container">
+        <span>S</span>
+        <span>M</span>
+        <span>O</span>
+        <span>K</span>
+        <span>Y</span>
+    </div>
 
 </body>
 </html>
